@@ -1,11 +1,22 @@
-import { Extension } from '@tiptap/core'
+import { Extension } from "@tiptap/core";
 
 const MyExtension = Extension.create({
   name: "MyExtension",
 
-  // do your stuff here
-})
+  // Add more extension configurations here...
 
-export { MyExtension }
+  addCommands() {
+    return {
+      myCommand:
+        () =>
+        ({ commands }) => {
+          return commands.insertContent("<p>My Extension</p>");
+        },
+      // Add more commands here...
+    };
+  },
+});
 
-export default MyExtension
+export { MyExtension };
+
+export default MyExtension;
